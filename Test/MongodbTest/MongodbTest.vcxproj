@@ -32,6 +32,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <ExecutablePath>F:\sumscope\hello-world\ThirdParty\MongoDB\mongo-c-driver\bin;F:\sumscope\hello-world\ThirdParty\MongoDB\mongo-cxx-driver\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>F:\sumscope\hello-world\ThirdParty\boost_1_73_0;F:\sumscope\hello-world\ThirdParty\MongoDB\mongo-c-driver\include\libmongoc-1.0;F:\sumscope\hello-world\ThirdParty\MongoDB\mongo-c-driver\include\libbson-1.0;F:\sumscope\hello-world\ThirdParty\MongoDB\mongo-cxx-driver\include\bsoncxx\v_noabi;F:\sumscope\hello-world\ThirdParty\MongoDB\mongo-cxx-driver\include\mongocxx\v_noabi;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\sumscope\hello-world\ThirdParty\MongoDB\mongo-cxx-driver\lib;F:\sumscope\hello-world\ThirdParty\MongoDB\mongo-c-driver\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
     <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
@@ -84,7 +87,7 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;bson-1.0.lib;mongoc-1.0.lib;bson-static-1.0.lib;mongoc-static-1.0.lib;bsoncxx.lib;mongocxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <Define>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;%(PreprocessorDefinitions)</Define>
